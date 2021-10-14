@@ -1,0 +1,213 @@
+//IP Functional Simulation Model
+//VERSION_BEGIN 16.1 cbx_mgl 2016:10:24:15:05:03:SJ cbx_simgen 2016:10:24:15:04:16:SJ  VERSION_END
+// synthesis VERILOG_INPUT_VERSION VERILOG_2001
+// altera message_off 10463
+
+
+
+// Copyright (C) 2016  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Intel and sold by Intel or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// You may only use these simulation model output files for simulation
+// purposes and expressly not for synthesis or any other purposes (in which
+// event Intel disclaims all warranties of any kind).
+
+
+//synopsys translate_off
+
+//synthesis_resources = fiftyfivenm_pll 1 lut 6 
+`timescale 1 ps / 1 ps
+module  Embed_altpll_1
+	( 
+	address,
+	areset,
+	c0,
+	c1,
+	c2,
+	c3,
+	c4,
+	clk,
+	configupdate,
+	locked,
+	phasecounterselect,
+	phasedone,
+	phasestep,
+	phaseupdown,
+	read,
+	readdata,
+	reset,
+	scanclk,
+	scanclkena,
+	scandata,
+	scandataout,
+	scandone,
+	write,
+	writedata) /* synthesis synthesis_clearbox=1 */;
+	input   [1:0]  address;
+	input   areset;
+	output   c0;
+	output   c1;
+	output   c2;
+	output   c3;
+	output   c4;
+	input   clk;
+	input   configupdate;
+	output   locked;
+	input   [2:0]  phasecounterselect;
+	output   phasedone;
+	input   phasestep;
+	input   phaseupdown;
+	input   read;
+	output   [31:0]  readdata;
+	input   reset;
+	input   scanclk;
+	input   scanclkena;
+	input   scandata;
+	output   scandataout;
+	output   scandone;
+	input   write;
+	input   [31:0]  writedata;
+
+	reg	embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_pll_lock_sync_138q;
+	reg	embed_altpll_1_pfdena_reg_7q;
+	reg	embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe4a_0_130q;
+	reg	embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe5a_0_133q;
+	reg	embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe6a_0_131q;
+	reg	embed_altpll_1_prev_reset_5q;
+	wire  [4:0]   wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_clk;
+	wire  wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_fbout;
+	wire  wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_locked;
+	wire  s_wire_embed_altpll_1_comb_4_dataout;
+	wire  s_wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_locked_141_dataout;
+	wire  s_wire_embed_altpll_1_w_select_control_18_dataout;
+	wire  s_wire_embed_altpll_1_w_select_status_21_dataout;
+	wire  s_wire_embed_altpll_1_wire_pfdena_reg_ena_16_dataout;
+	wire  s_wire_vcc;
+
+	initial
+	begin
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_pll_lock_sync_138q = 0;
+	end
+	always @ ( posedge wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_locked or  posedge s_wire_embed_altpll_1_comb_4_dataout)
+	begin
+		if (s_wire_embed_altpll_1_comb_4_dataout == 1'b1) 
+		begin
+			embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_pll_lock_sync_138q <= 0;
+		end
+		else 
+		begin
+			embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_pll_lock_sync_138q <= s_wire_vcc;
+		end
+	end
+	initial
+	begin
+		embed_altpll_1_pfdena_reg_7q = 0;
+	end
+	always @ ( posedge clk or  posedge reset)
+	begin
+		if (reset == 1'b1) 
+		begin
+			embed_altpll_1_pfdena_reg_7q <= 1;
+		end
+		else if  (s_wire_embed_altpll_1_wire_pfdena_reg_ena_16_dataout == 1'b1) 
+		begin
+			embed_altpll_1_pfdena_reg_7q <= writedata[1];
+		end
+	end
+	event embed_altpll_1_pfdena_reg_7q_event;
+	initial
+		#1 ->embed_altpll_1_pfdena_reg_7q_event;
+	always @(embed_altpll_1_pfdena_reg_7q_event)
+		embed_altpll_1_pfdena_reg_7q <= 1;
+	initial
+	begin
+		embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe4a_0_130q = 0;
+		embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe5a_0_133q = 0;
+		embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe6a_0_131q = 0;
+		embed_altpll_1_prev_reset_5q = 0;
+	end
+	always @ ( posedge clk or  posedge reset)
+	begin
+		if (reset == 1'b1) 
+		begin
+			embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe4a_0_130q <= 0;
+			embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe5a_0_133q <= 0;
+			embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe6a_0_131q <= 0;
+			embed_altpll_1_prev_reset_5q <= 0;
+		end
+		else 
+		begin
+			embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe4a_0_130q <= s_wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_locked_141_dataout;
+			embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe5a_0_133q <= embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe4a_0_130q;
+			embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe6a_0_131q <= embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe5a_0_133q;
+			embed_altpll_1_prev_reset_5q <= (s_wire_embed_altpll_1_wire_pfdena_reg_ena_16_dataout & writedata[0]);
+		end
+	end
+	fiftyfivenm_pll   embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161
+	( 
+	.activeclock(),
+	.areset(s_wire_embed_altpll_1_comb_4_dataout),
+	.clk(wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_clk),
+	.clkbad(),
+	.fbin(wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_fbout),
+	.fbout(wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_fbout),
+	.inclk({1'b0, clk}),
+	.locked(wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_locked),
+	.phasedone(),
+	.scandataout(),
+	.scandone(),
+	.vcooverrange(),
+	.vcounderrange(),
+	.clkswitch(),
+	.configupdate(),
+	.pfdena(),
+	.phasecounterselect(),
+	.phasestep(),
+	.phaseupdown(),
+	.scanclk(),
+	.scanclkena(),
+	.scandata()
+	);
+	defparam
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.bandwidth_type = "auto",
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.clk0_divide_by = 1,
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.clk0_duty_cycle = 50,
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.clk0_multiply_by = 1,
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.clk0_phase_shift = "0",
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.compensate_clock = "clk0",
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.inclk0_input_frequency = 100000,
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.lpm_type = "fiftyfivenm_pll",
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.operation_mode = "normal",
+		embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161.pll_type = "auto";
+	assign
+		c0 = wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_clk[0],
+		c1 = wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_clk[1],
+		c2 = wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_clk[2],
+		c3 = wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_clk[3],
+		c4 = wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_clk[4],
+		locked = s_wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_locked_141_dataout,
+		phasedone = 1'b0,
+		readdata = {{30{1'b0}}, (((embed_altpll_1_pfdena_reg_7q & s_wire_embed_altpll_1_w_select_control_18_dataout) | s_wire_embed_altpll_1_w_select_status_21_dataout) & read), (((embed_altpll_1_prev_reset_5q & s_wire_embed_altpll_1_w_select_control_18_dataout) | (s_wire_embed_altpll_1_w_select_status_21_dataout & embed_altpll_1_embed_altpll_1_stdsync_sv6_stdsync2_embed_altpll_1_dffpipe_l2c_dffpipe3_dffe6a_0_131q)) & read)},
+		s_wire_embed_altpll_1_comb_4_dataout = (embed_altpll_1_prev_reset_5q | areset),
+		s_wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_locked_141_dataout = (embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_pll_lock_sync_138q & wire_embed_altpll_1_embed_altpll_1_altpll_gr22_sd1_fiftyfivenm_pll_pll7_161_locked),
+		s_wire_embed_altpll_1_w_select_control_18_dataout = (address[0] & (~ address[1])),
+		s_wire_embed_altpll_1_w_select_status_21_dataout = ((~ address[0]) & (~ address[1])),
+		s_wire_embed_altpll_1_wire_pfdena_reg_ena_16_dataout = (s_wire_embed_altpll_1_w_select_control_18_dataout & write),
+		s_wire_vcc = 1'b1,
+		scandataout = 1'b0,
+		scandone = 1'b0;
+endmodule //Embed_altpll_1
+//synopsys translate_on
+//VALID FILE
